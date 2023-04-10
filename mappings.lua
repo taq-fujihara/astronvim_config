@@ -10,6 +10,11 @@ return {
       function() require("hop").hint_char2({}) end,
       desc = "HopChar2",
     },
+    ["-"] = {
+      "<cmd>split<cr>",
+      desc = "Horizontal Split",
+    },
+    -- VSCode compatible
     ["<C-\\>"] = {
       "<cmd>vsplit<cr>",
       desc = "Vertical Split",
