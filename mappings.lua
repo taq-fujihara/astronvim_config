@@ -19,6 +19,14 @@ return {
       "<cmd>vsplit<cr>",
       desc = "Vertical Split",
     },
+    ["<Leader>j"] = {
+      "*``cgn",
+      desc = "Replace Word under Cursor",
+    },
+    ["<Leader>gho"] = {
+      "<cmd>GhostTextStart<cr>",
+      desc = "Start GhostText",
+    }
   },
 }
 
