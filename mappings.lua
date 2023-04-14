@@ -19,6 +19,12 @@ return {
       "<cmd>vsplit<cr>",
       desc = "Vertical Split",
     },
+    ["<C-_>"] = {
+      function()
+        require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
+      end,
+      desc = "Comment Line",
+    },
     ["<Leader>j"] = {
       "*``cgn",
       desc = "Replace Word under Cursor",
@@ -28,5 +34,12 @@ return {
       desc = "Start GhostText",
     }
   },
+  i = {
+    ["<C-_>"] = {
+      function()
+        require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
+      end,
+      desc = "Comment Line",
+    },
+  }
 }
-
