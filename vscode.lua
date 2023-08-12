@@ -37,7 +37,7 @@ require("lazy").setup(
       require("nvim-surround").setup({
       })
     end
-  },
+  }
 )
 
 vim.keymap.set("n", "|", "<Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>")
