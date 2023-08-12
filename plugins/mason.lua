@@ -9,7 +9,7 @@ return {
         "eslint",
         "rust_analyzer",
         -- "svelte",
-        -- "tsserver",
+        "tsserver",
         "volar",
       },
     },
@@ -20,7 +20,7 @@ return {
       ensure_installed = {
         -- "black",
         "flake8",
-        -- "prettier",
+        "prettier",
       },
     },
   },
