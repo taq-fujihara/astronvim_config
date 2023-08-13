@@ -4,7 +4,7 @@ return {
     opts = {
       ensure_installed = {
         -- "cssls",
-        -- "denols",
+        "denols",
         -- "pyright",
         "eslint",
         "rust_analyzer",
