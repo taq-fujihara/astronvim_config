@@ -52,4 +52,4 @@ vim.keymap.set("n", "<Leader>w", "<Cmd>call VSCodeNotify('workbench.action.files
 vim.keymap.set("n", "<Leader>q", "<Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>")
 vim.keymap.set("n", "<Leader>n", "<Cmd>call VSCodeNotify('fileutils.newFileAtRoot')<CR>")
 vim.keymap.set("n", "<Leader>/", "<Cmd>call VSCodeNotify('editor.action.commentLine')<CR>")
-vim.keymap.set("n", "<Leader>gt", "<Cmd>call VSCodeNotify('workbench.scm.focus')<CR>")
+vim.keymap.set("n", "<Leader>gg", "<Cmd>call VSCodeNotify('workbench.scm.focus')<CR>")
