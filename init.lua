@@ -1,7 +1,5 @@
 return {
-  colorscheme = "astrodark",
-  -- colorscheme = "iceberg",
-  -- colorscheme = "tokyonight",
+  colorscheme = "tokyonight",
   lsp = {
     formatting = {
       -- filter = function(client)
