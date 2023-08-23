@@ -5,7 +5,7 @@ return {
       ensure_installed = {
         -- "cssls",
         -- "denols",
-        -- "pyright",
+        "pyright",
         "eslint",
         -- "rust_analyzer",
         -- "svelte",
@@ -18,8 +18,8 @@ return {
     "jay-babu/mason-null-ls.nvim",
     opts = {
       ensure_installed = {
-        -- "black",
-        -- "flake8",
+        "black",
+        "flake8",
         "prettier",
       },
     },
