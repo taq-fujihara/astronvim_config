@@ -4,13 +4,13 @@ return {
     opts = {
       ensure_installed = {
         -- "cssls",
-        "denols",
+        -- "denols",
         -- "pyright",
         "eslint",
-        "rust_analyzer",
+        -- "rust_analyzer",
         -- "svelte",
         "tsserver",
-        "volar",
+        -- "volar",
       },
     },
   },
@@ -19,7 +19,7 @@ return {
     opts = {
       ensure_installed = {
         -- "black",
-        "flake8",
+        -- "flake8",
         "prettier",
       },
     },
