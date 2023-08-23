@@ -10,7 +10,7 @@ return {
         -- "rust_analyzer",
         -- "svelte",
         "tsserver",
-        -- "volar",
+        "volar",
       },
     },
   },
