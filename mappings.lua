@@ -10,11 +10,6 @@ return {
       "<cmd>split<cr>",
       desc = "Horizontal Split",
     },
-    -- VSCode compatible
-    ["<C-\\>"] = {
-      "<cmd>vsplit<cr>",
-      desc = "Vertical Split",
-    },
     ["<C-_>"] = {
       function()
         require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
