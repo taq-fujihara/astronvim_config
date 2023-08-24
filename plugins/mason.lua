@@ -5,6 +5,7 @@ return {
       ensure_installed = {
         -- "cssls",
         -- "denols",
+        "marksman",
         "pyright",
         "eslint",
         -- "rust_analyzer",
