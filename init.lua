@@ -2,13 +2,9 @@ return {
   colorscheme = "tokyonight",
   lsp = {
     formatting = {
-      filter = function(client)
-        if vim.bo.filetype == "vue" then
-          -- prevent volar from formatting .vue files
-          return client.name == "null-ls"
-        end
-        return true
-      end,
+      disabled = {
+        "volar",
+      },
     },
     config = {
     --   denols = function(opts)
