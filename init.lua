@@ -7,6 +7,16 @@ return {
       },
     },
     config = {
+      pyright = function(opts)
+        opts.on_new_config = function(new_config, new_root_dir)
+          local util = require("lspconfig.util")
+          local is_pipenv = util.root_pattern("Pipfile")(new_root_dir)
+          if is_pipenv then
+            new_config.cmd = { "pipenv", "run", "pyright-langserver", "--stdio" }
+          end
+        end
+        return opts
+      end,
       tsserver = function(opts)
         opts.root_dir = require("lspconfig.util").root_pattern("package.json")
         opts.single_file_support = false
