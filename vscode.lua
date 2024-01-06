@@ -70,3 +70,4 @@ vim.keymap.set("n", "<Leader>/", "<Cmd>call VSCodeNotify('editor.action.commentL
 vim.keymap.set("n", "<Leader>gg", "<Cmd>call VSCodeNotify('workbench.scm.focus')<CR>")
 vim.keymap.set("v", "<Leader>/", "<Cmd>call VSCodeNotify('editor.action.commentLine')<CR>")
 vim.keymap.set("v", "<Leader>w", "<Cmd>call VSCodeNotify('workbench.action.files.save')<CR>")
+vim.keymap.set("n", "<Leader>j", "*``cgn")
