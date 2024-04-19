@@ -7,6 +7,8 @@ return {
         "biome",
         "eslint",
         "lua_ls",
+        "pyright",
+        "ruff_lsp",
       })
 
       if opts.config == nil then opts.config = {} end
