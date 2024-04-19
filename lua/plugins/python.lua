@@ -12,17 +12,16 @@ return {
           python = {
             analysis = {
               -- Ignore all files for analysis to exclusively use Ruff for linting
-              ignore = { '*' },
+              ignore = { "*" },
             },
           },
         }
         require("lspconfig").pyright.setup(opts)
       end,
       ruff_lsp = function(_, opts)
-        opts.on_attach = function(client, bufnr)
-          client.server_caapabilities.hoverProvider = false
-        end,
-        require("lspconfig").ruff_lsp.setup(opts)
+        opts.on_attach =
+          function(client, bufnr) client.server_caapabilities.hoverProvider = false end,
+          require("lspconfig").ruff_lsp.setup(opts)
       end,
     },
   },

@@ -10,17 +10,13 @@ return {
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     config.sources = {
       -- Set a formatter
-      -- null_ls.builtins.formatting.stylua,
-      null_ls.builtins.formatting.prettier.with({
-        condition = function(utils)
-          return not utils.has_file("biome.json")
-        end,
-      }),
-      null_ls.builtins.formatting.biome.with({
-        condition = function(utils)
-          return utils.has_file("biome.json")
-        end,
-      }),
+      null_ls.builtins.formatting.stylua,
+      null_ls.builtins.formatting.prettier.with {
+        condition = function(utils) return not utils.has_file "biome.json" end,
+      },
+      null_ls.builtins.formatting.biome.with {
+        condition = function(utils) return utils.has_file "biome.json" end,
+      },
     }
     return config -- return final config table
   end,
