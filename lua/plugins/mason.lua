@@ -9,6 +9,8 @@ return {
         "lua_ls",
         "pyright",
         "ruff_lsp",
+        "rust_analyzer",
+        "tsserver",
       })
 
       if opts.config == nil then opts.config = {} end
