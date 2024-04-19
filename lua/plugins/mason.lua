@@ -10,12 +10,13 @@ return {
         "pyright",
         "ruff_lsp",
         "rust_analyzer",
+        "terraformls",
         "tsserver",
       })
 
       if opts.config == nil then opts.config = {} end
       opts.config.biome = {
-        root_dir = require("lspconfig.util").root_pattern "biome.json"
+        root_dir = require("lspconfig.util").root_pattern "biome.json",
       }
       opts.config.eslint = {
         root_dir = require("lspconfig.util").root_pattern ".eslintrc.*"
