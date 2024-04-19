@@ -1,19 +1,23 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- Customize Mason plugins
-
 ---@type LazySpec
 return {
-  -- use mason-lspconfig to configure LSP installations
   {
     "williamboman/mason-lspconfig.nvim",
-    -- overrides `require("mason-lspconfig").setup(...)`
     opts = function(_, opts)
-      -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+        "biome",
+        "eslint",
         "lua_ls",
-        -- add more arguments for adding more language servers
       })
+
+      if opts.config == nil then opts.config = {} end
+      opts.config.biome = {
+        root_dir = require("lspconfig.util").root_pattern "biome.json"
+      }
+      opts.config.eslint = {
+        root_dir = require("lspconfig.util").root_pattern ".eslintrc.*"
+          or require("lspconfig.util").root_pattern "eslintrc.*"
+          or require("lspconfig.util").root_pattern "eslint.config.*",
+      }
     end,
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
@@ -25,7 +29,6 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "prettier",
         "stylua",
-        -- add more arguments for adding more null-ls sources
       })
     end,
   },
@@ -35,7 +38,7 @@ return {
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "python",
+        -- "python",
         -- add more arguments for adding more debuggers
       })
     end,
