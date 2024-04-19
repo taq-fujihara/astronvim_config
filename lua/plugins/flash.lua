@@ -3,6 +3,11 @@ return {
   event = "VeryLazy",
   version = "*",
   opts = {},
+  config = function()
+    vim.api.nvim_set_hl(0, "FlashCurrent", { foreground = '#ffffff', background = '#1976D2' })
+    vim.api.nvim_set_hl(0, "FlashLabel", { foreground = '#ffffff', background = '#E91E63' })
+    vim.api.nvim_set_hl(0, "FlashMatch", { foreground = '#ffffff', background = '#1976D2' })
+  end,
   keys = {
     {
       "s",
