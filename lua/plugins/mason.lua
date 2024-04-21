@@ -10,6 +10,7 @@ return {
         "pyright",
         "ruff_lsp",
         "rust_analyzer",
+        "svelte",
         "terraformls",
         "tsserver",
       })

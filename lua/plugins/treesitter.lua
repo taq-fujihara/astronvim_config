@@ -9,6 +9,7 @@ return {
       "javascript",
       "lua",
       "scss",
+      "svelte",
       "typescript",
       "vue",
       "vim",
