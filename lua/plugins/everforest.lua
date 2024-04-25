@@ -13,7 +13,7 @@ return {
           -- bg = palette.bg0,
         }
         hl.CursorColumn = {
-          bg = palette.bg0,
+          bg = palette.bg1,
         }
       end,
     }
