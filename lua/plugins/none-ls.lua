@@ -1,23 +1,46 @@
+local function has_prettier_config(utils)
+  return utils.root_has_file ".prettierrc"
+    or utils.root_has_file ".prettierrc.json"
+    or utils.root_has_file ".prettierrc.yml"
+    or utils.root_has_file ".prettierrc.yaml"
+    or utils.root_has_file ".prettierrc.json5"
+    or utils.root_has_file ".prettierrc.js"
+    or utils.root_has_file ".prettierrc.cjs"
+    or utils.root_has_file "prettier.config.js"
+    or utils.root_has_file ".prettierrc.mjs"
+    or utils.root_has_file "prettier.config.mjs"
+    or utils.root_has_file "prettier.config.cjs"
+    or utils.root_has_file ".prettierrc.toml"
+end
+
+local function has_deno_config(utils) return utils.root_has_file "deno.json" or utils.root_has_file "deno.jsonc" end
+
 ---@type LazySpec
 return {
   "nvimtools/none-ls.nvim",
   opts = function(_, config)
-    -- config variable is the default configuration table for the setup function call
     local null_ls = require "null-ls"
 
     -- Check supported formatters and linters
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     config.sources = {
-      -- Set a formatter
-      null_ls.builtins.formatting.stylua,
-      null_ls.builtins.formatting.prettier.with {
-        condition = function(utils) return not utils.has_file "biome.json" end,
-      },
+      -- ---------------------------------------------------
+      -- JavaScript / TypeScript
+      -- ---------------------------------------------------
       null_ls.builtins.formatting.biome.with {
-        condition = function(utils) return utils.has_file "biome.json" end,
+        -- Default
+        condition = function(utils) return not has_prettier_config(utils) and not has_deno_config(utils) end,
       },
+      null_ls.builtins.formatting.prettier.with {
+        -- I use prettier only when prettier config is present
+        condition = has_prettier_config,
+      },
+      -- ---------------------------------------------------
+      -- Lua
+      -- ---------------------------------------------------
+      null_ls.builtins.formatting.stylua,
     }
-    return config -- return final config table
+    return config
   end,
 }

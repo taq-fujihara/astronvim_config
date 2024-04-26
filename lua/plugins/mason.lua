@@ -5,6 +5,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "biome",
+        "denols",
         "eslint",
         "lua_ls",
         "pyright",
@@ -13,17 +14,8 @@ return {
         "svelte",
         "terraformls",
         "tsserver",
+        "volar",
       })
-
-      if opts.config == nil then opts.config = {} end
-      opts.config.biome = {
-        root_dir = require("lspconfig.util").root_pattern "biome.json",
-      }
-      opts.config.eslint = {
-        root_dir = require("lspconfig.util").root_pattern ".eslintrc.*"
-          or require("lspconfig.util").root_pattern "eslintrc.*"
-          or require("lspconfig.util").root_pattern "eslint.config.*",
-      }
     end,
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
