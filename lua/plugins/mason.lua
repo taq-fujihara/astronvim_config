@@ -6,6 +6,8 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "biome",
         "denols",
+        "docker_compose_language_service",
+        "dockerls",
         "eslint",
         "lua_ls",
         "pyright",
