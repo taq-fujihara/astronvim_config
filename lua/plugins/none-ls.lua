@@ -1,19 +1,19 @@
 local function has_prettier_config(utils)
-  return utils.root_has_file ".prettierrc"
-    or utils.root_has_file ".prettierrc.json"
-    or utils.root_has_file ".prettierrc.yml"
-    or utils.root_has_file ".prettierrc.yaml"
-    or utils.root_has_file ".prettierrc.json5"
-    or utils.root_has_file ".prettierrc.js"
-    or utils.root_has_file ".prettierrc.cjs"
-    or utils.root_has_file "prettier.config.js"
-    or utils.root_has_file ".prettierrc.mjs"
-    or utils.root_has_file "prettier.config.mjs"
-    or utils.root_has_file "prettier.config.cjs"
-    or utils.root_has_file ".prettierrc.toml"
+  return utils.has_file ".prettierrc"
+    or utils.has_file ".prettierrc.json"
+    or utils.has_file ".prettierrc.yml"
+    or utils.has_file ".prettierrc.yaml"
+    or utils.has_file ".prettierrc.json5"
+    or utils.has_file ".prettierrc.js"
+    or utils.has_file ".prettierrc.cjs"
+    or utils.has_file "prettier.config.js"
+    or utils.has_file ".prettierrc.mjs"
+    or utils.has_file "prettier.config.mjs"
+    or utils.has_file "prettier.config.cjs"
+    or utils.has_file ".prettierrc.toml"
 end
 
-local function has_deno_config(utils) return utils.root_has_file "deno.json" or utils.root_has_file "deno.jsonc" end
+local function has_deno_config(utils) return utils.has_file "deno.json" or utils.has_file "deno.jsonc" end
 
 ---@type LazySpec
 return {

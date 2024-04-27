@@ -11,6 +11,7 @@ return {
       "lua",
       "scss",
       "svelte",
+      "toml",
       "typescript",
       "vue",
       "vim",
