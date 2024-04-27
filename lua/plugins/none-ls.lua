@@ -40,6 +40,10 @@ return {
       -- Lua
       -- ---------------------------------------------------
       null_ls.builtins.formatting.stylua,
+      -- ---------------------------------------------------
+      -- Docker
+      -- ---------------------------------------------------
+      null_ls.builtins.diagnostics.hadolint,
     }
     return config
   end,
