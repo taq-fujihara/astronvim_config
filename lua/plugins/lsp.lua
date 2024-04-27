@@ -64,25 +64,27 @@ return {
               },
             },
           }
-
           require("lspconfig").tsserver.setup(opts)
         end,
       },
       formatting = {
         disabled = {
           "volar", -- prefer prettier
+          "tsserver",
         },
+        -- filter = function(client)
+        --   -- do not let null-ls (actually biome) format if denols is attached
+        --   if client.name == "null-ls" then
+        --     local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients) {
+        --       name = "denols",
+        --     }
+        --     if #clients > 0 then return false end
+        --   end
+        --
+        --   return true
+        -- end,
       },
     },
-  },
-  {
-    "sigmasd/deno-nvim",
-    ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-    dependencies = { { "AstroNvim/astrolsp", optional = true, opts = { handlers = { denols = false } } } },
-    opts = function(_, opts)
-      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-      if astrolsp_avail then opts.server = astrolsp.lsp_opts "denols" end
-    end,
   },
   {
     "AstroNvim/astrocore",
