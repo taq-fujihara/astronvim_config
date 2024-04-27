@@ -66,6 +66,13 @@ return {
           }
           require("lspconfig").tsserver.setup(opts)
         end,
+        -- ---------------------------------------------------
+        -- Python
+        -- ---------------------------------------------------
+        ruff_lsp = function(_, opts)
+          opts.on_attach = function(client, _) client.server_caapabilities.hoverProvider = false end
+          require("lspconfig").ruff_lsp.setup(opts)
+        end,
       },
       formatting = {
         disabled = {
