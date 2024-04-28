@@ -20,6 +20,7 @@ return {
           "*``cgn",
           desc = "Replace Word under Cursor",
         },
+        ["<Leader><space>"] = { function() require("telescope.builtin").buffers() end, desc = "Find buffers" },
         -- ["<Leader>gho"] = {
         --   "<cmd>GhostTextStart<cr>",
         --   desc = "Start GhostText",
