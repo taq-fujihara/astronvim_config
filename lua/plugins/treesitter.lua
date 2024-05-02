@@ -11,6 +11,7 @@ return {
       "javascript",
       "lua",
       "scss",
+      "sql",
       "svelte",
       "toml",
       "typescript",

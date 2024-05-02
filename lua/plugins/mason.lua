@@ -14,6 +14,7 @@ return {
         "pyright",
         "ruff_lsp",
         "rust_analyzer",
+        -- "sqls",
         "svelte",
         "taplo",
         "terraformls",
