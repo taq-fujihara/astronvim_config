@@ -10,10 +10,10 @@ return {
       transparent_background_level = 1,
       on_highlights = function(hl, palette)
         hl.CursorLine = {
-          -- bg = palette.bg0,
+          bg = palette.bg2,
         }
         hl.CursorColumn = {
-          bg = palette.bg1,
+          bg = palette.bg2,
         }
       end,
     }
