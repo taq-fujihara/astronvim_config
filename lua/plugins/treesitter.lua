@@ -10,6 +10,7 @@ return {
       "html",
       "javascript",
       "lua",
+      "python",
       "scss",
       "sql",
       "svelte",
