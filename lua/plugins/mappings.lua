@@ -4,6 +4,7 @@ return {
   opts = {
     mappings = {
       n = {
+        [";"] = { ":", desc = "CMD enter command mode" },
         L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
         ["-"] = {
