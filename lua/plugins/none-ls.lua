@@ -13,7 +13,11 @@ local function has_prettier_config(utils)
     or utils.has_file ".prettierrc.toml"
 end
 
-local function has_deno_config(utils) return utils.has_file "deno.json" or utils.has_file "deno.jsonc" end
+local function has_deno_config(utils)
+  return utils.has_file "deno.json"
+    or utils.has_file "deno.jsonc"
+    or "deno.local.json" -- Git ignores this file in my environment. Just a flag to enable Deno LSP
+  end
 
 ---@type LazySpec
 return {
