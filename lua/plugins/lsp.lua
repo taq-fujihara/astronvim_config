@@ -10,7 +10,9 @@ return {
         -- JavaScript / TypeScript
         -- ---------------------------------------------------
         eslint = {
-          root_dir = require("lspconfig.util").root_pattern ".eslintrc.*"
+          root_dir = require("lspconfig.util").root_pattern ".eslintrc"
+            or require("lspconfig.util").root_pattern ".eslintrc.*"
+            or require("lspconfig.util").root_pattern "eslintrc"
             or require("lspconfig.util").root_pattern "eslintrc.*"
             or require("lspconfig.util").root_pattern "eslint.config.*",
         },
