@@ -10,11 +10,12 @@ return {
         "docker_compose_language_service",
         "dockerls",
         "eslint",
+        "jdtls",
         "lua_ls",
         "pyright",
         "ruff_lsp",
         "rust_analyzer",
-        -- "sqls",
+        "sqls",
         "svelte",
         "taplo",
         "terraformls",
@@ -39,13 +40,53 @@ return {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
-    -- overrides `require("mason-nvim-dap").setup(...)`
     opts = function(_, opts)
-      -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        -- "python",
-        -- add more arguments for adding more debuggers
+        "js",
+        "python",
       })
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    optional = true,
+    config = function()
+      local dap = require "dap"
+      dap.adapters["pwa-node"] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = "node",
+          args = {
+            require("mason-registry").get_package("js-debug-adapter"):get_install_path()
+              .. "/js-debug/src/dapDebugServer.js",
+            "${port}",
+          },
+        },
+      }
+      local js_config = {
+        {
+          type = "pwa-node",
+          request = "launch",
+          name = "Launch file",
+          program = "${file}",
+          cwd = "${workspaceFolder}",
+        },
+        {
+          type = "pwa-node",
+          request = "attach",
+          name = "Attach",
+          processId = require("dap.utils").pick_process,
+          cwd = "${workspaceFolder}",
+        },
+      }
+
+      if not dap.configurations.javascript then
+        dap.configurations.javascript = js_config
+      else
+        require("astrocore").extend_tbl(dap.configurations.javascript, js_config)
+      end
     end,
   },
 }
