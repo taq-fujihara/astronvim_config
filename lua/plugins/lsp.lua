@@ -54,7 +54,7 @@ return {
         -- ---------------------------------------------------
         -- JavaScript / TypeScript
         -- ---------------------------------------------------
-        tsserver = function(_, opts)
+        ts_ls = function(_, opts)
           -- Vue stuff
           local mason_registry = require "mason-registry"
           local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
@@ -68,7 +68,7 @@ return {
               },
             },
           }
-          require("lspconfig").tsserver.setup(opts)
+          require("lspconfig").ts_ls.setup(opts)
         end,
         -- ---------------------------------------------------
         -- Python
@@ -81,7 +81,7 @@ return {
       formatting = {
         disabled = {
           "volar", -- prefer prettier
-          "tsserver",
+          "ts_ls",
         },
         -- filter = function(client)
         --   -- do not let null-ls (actually biome) format if denols is attached
@@ -113,14 +113,14 @@ return {
               if curr_client and curr_client.name == "denols" then
                 local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients) {
                   bufnr = bufnr,
-                  name = "tsserver",
+                  name = "ts_ls",
                 }
                 for _, client in ipairs(clients) do
                   vim.lsp.stop_client(client.id, true)
                 end
               end
-              -- if tsserver attached, stop it if there is a denols server attached
-              if curr_client and curr_client.name == "tsserver" then
+              -- stop typescript server attached if there is a denols server attached
+              if curr_client and curr_client.name == "ts_ls" then
                 if next((vim.lsp.get_clients or vim.lsp.get_active_clients) { bufnr = bufnr, name = "denols" }) then
                   vim.lsp.stop_client(curr_client.id, true)
                 end

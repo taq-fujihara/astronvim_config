@@ -18,7 +18,7 @@ return {
         "svelte",
         "taplo",
         "terraformls",
-        "tsserver",
+        "ts_ls",
         "volar",
       })
     end,
