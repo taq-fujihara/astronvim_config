@@ -12,7 +12,7 @@ return {
         "eslint",
         "jdtls",
         "lua_ls",
-        "pyright",
+        "basedpyright",
         "ruff_lsp",
         "rust_analyzer",
         "sqls",

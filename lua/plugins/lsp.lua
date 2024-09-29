@@ -37,6 +37,18 @@ return {
         -- ---------------------------------------------------
         -- Python
         -- ---------------------------------------------------
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              analysis = {
+                diagnosticSeverityOverrides = {
+                  reportUnusedVariable = false, -- ruff handles this
+                  reportUnusedExcept = false,
+                },
+              },
+            },
+          },
+        },
         -- pyright = {
         --   settings = {
         --     pyright = {
@@ -72,13 +84,6 @@ return {
           }
           require("lspconfig").ts_ls.setup(opts)
         end,
-        -- ---------------------------------------------------
-        -- Python
-        -- ---------------------------------------------------
-        -- ruff_lsp = function(_, opts)
-        --   opts.on_attach = function(client, _) client.server_capabilities.hoverProvider = false end
-        --   require("lspconfig").ruff_lsp.setup(opts)
-        -- end,
       },
       formatting = {
         disabled = {
