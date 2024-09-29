@@ -8,6 +8,7 @@ return {
       "css",
       "dockerfile",
       "html",
+      "java",
       "javascript",
       "lua",
       "python",
