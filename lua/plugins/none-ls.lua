@@ -1,23 +1,27 @@
 local function has_prettier_config(utils)
-  return utils.has_file ".prettierrc"
-    or utils.has_file ".prettierrc.json"
-    or utils.has_file ".prettierrc.yml"
-    or utils.has_file ".prettierrc.yaml"
-    or utils.has_file ".prettierrc.json5"
-    or utils.has_file ".prettierrc.js"
-    or utils.has_file ".prettierrc.cjs"
-    or utils.has_file "prettier.config.js"
-    or utils.has_file ".prettierrc.mjs"
-    or utils.has_file "prettier.config.mjs"
-    or utils.has_file "prettier.config.cjs"
-    or utils.has_file ".prettierrc.toml"
+  return utils.has_file(
+    ".prettierrc",
+    ".prettierrc.json",
+    ".prettierrc.yml",
+    ".prettierrc.yaml",
+    ".prettierrc.json5",
+    ".prettierrc.js",
+    ".prettierrc.cjs",
+    "prettier.config.js",
+    ".prettierrc.mjs",
+    "prettier.config.mjs",
+    "prettier.config.cjs",
+    ".prettierrc.toml"
+  )
 end
 
 local function has_deno_config(utils)
-  return utils.has_file "deno.json"
-    or utils.has_file "deno.jsonc"
-    or "deno.local.json" -- Git ignores this file in my environment. Just a flag to enable Deno LSP
-  end
+  return utils.has_file(
+    "deno.json",
+    "deno.jsonc",
+    "deno.local.json" -- Git ignores this file in my environment. Just a flag to enable Deno LSP.
+  )
+end
 
 ---@type LazySpec
 return {
@@ -32,13 +36,17 @@ return {
       -- ---------------------------------------------------
       -- JavaScript / TypeScript
       -- ---------------------------------------------------
-      null_ls.builtins.formatting.biome.with {
-        -- Default
-        condition = function(utils) return not has_prettier_config(utils) and not has_deno_config(utils) end,
-      },
+      -- Use Prettier only when prettier config is present 
       null_ls.builtins.formatting.prettier.with {
-        -- I use prettier only when prettier config is present
         condition = has_prettier_config,
+      },
+      -- Default Biome
+      null_ls.builtins.formatting.biome.with {
+        condition = function(utils)
+          local has_prettier = has_prettier_config(utils)
+          local has_deno = has_deno_config(utils)
+          return not (has_prettier or has_deno)
+        end,
       },
       -- ---------------------------------------------------
       -- Lua

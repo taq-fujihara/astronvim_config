@@ -10,11 +10,13 @@ return {
         -- JavaScript / TypeScript
         -- ---------------------------------------------------
         eslint = {
-          root_dir = require("lspconfig.util").root_pattern ".eslintrc"
-            or require("lspconfig.util").root_pattern ".eslintrc.*"
-            or require("lspconfig.util").root_pattern "eslintrc"
-            or require("lspconfig.util").root_pattern "eslintrc.*"
-            or require("lspconfig.util").root_pattern "eslint.config.*",
+          root_dir = require("lspconfig.util").root_pattern(
+            ".eslintrc",
+            ".eslintrc.*",
+            "eslintrc",
+            "eslintrc.*",
+            "eslint.config.*"
+          ),
         },
         biome = {
           root_dir = require("lspconfig.util").root_pattern "biome.json",
@@ -23,7 +25,7 @@ return {
           root_dir = require("lspconfig.util").root_pattern(
             "deno.json",
             "deno.jsonc",
-            "deno.local.json" -- Git ignores this file in my environment. Just a flag to enable Deno LSP
+            "deno.local.json" -- Git ignores this file in my environment. Just a flag to enable Deno LSP.
           ),
         },
         volar = {
@@ -89,6 +91,7 @@ return {
         disabled = {
           "volar", -- prefer prettier
           "ts_ls",
+          "biome", -- let None-LS biome format
         },
         -- filter = function(client)
         --   -- do not let null-ls (actually biome) format if denols is attached
