@@ -25,7 +25,7 @@ return {
           root_dir = require("lspconfig.util").root_pattern(
             "deno.json",
             "deno.jsonc",
-            "deno.local.json" -- Git ignores this file in my environment. Just a flag to enable Deno LSP.
+            ".deno.local" -- Git ignores this file in my environment. Just a flag to enable Deno LSP.
           ),
         },
         volar = {

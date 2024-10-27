@@ -19,7 +19,7 @@ local function has_deno_config(utils)
   return utils.has_file(
     "deno.json",
     "deno.jsonc",
-    "deno.local.json" -- Git ignores this file in my environment. Just a flag to enable Deno LSP.
+    ".deno.local" -- Git ignores this file in my environment. Just a flag to enable Deno LSP.
   )
 end
 
