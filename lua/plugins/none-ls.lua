@@ -39,6 +39,7 @@ return {
       -- Use Prettier only when prettier config is present 
       null_ls.builtins.formatting.prettier.with {
         condition = has_prettier_config,
+        only_local = true,
       },
       -- Default Biome
       null_ls.builtins.formatting.biome.with {
