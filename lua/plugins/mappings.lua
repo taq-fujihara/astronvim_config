@@ -55,6 +55,9 @@ return {
           desc = "Comment Line",
         },
       },
+      v = {
+        [";"] = { ":", desc = "CMD enter command mode" },
+      }
     },
   },
 }
