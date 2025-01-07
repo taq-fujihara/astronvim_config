@@ -6,10 +6,10 @@ return {
       n = {
         [";"] = { ":", desc = "CMD enter command mode" },
 
-        ["<C-S-j>"] = { "<Cmd>resize -2<CR>", desc = "Resize split up" },
-        ["<C-S-k>"] = { "<Cmd>resize +2<CR>", desc = "Resize split down" },
-        ["<C-S-l>"] = { "<Cmd>vertical resize -4<CR>", desc = "Resize split left" },
-        ["<C-S-h>"] = { "<Cmd>vertical resize +4<CR>", desc = "Resize split right" },
+        ["<Left>"] = { "<Cmd>vertical resize +4<CR>", desc = "Resize split left" },
+        ["<Up>"] = { "<Cmd>resize -2<CR>", desc = "Resize split up" },
+        ["<Down>"] = { "<Cmd>resize +2<CR>", desc = "Resize split down" },
+        ["<Right>"] = { "<Cmd>vertical resize -4<CR>", desc = "Resize split right" },
 
         L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },

@@ -42,6 +42,7 @@ return {
         basedpyright = {
           settings = {
             basedpyright = {
+              typeCheckingMode = "standard",
               analysis = {
                 diagnosticSeverityOverrides = {
                   reportUnusedVariable = false, -- ruff handles this
@@ -70,6 +71,7 @@ return {
         -- ---------------------------------------------------
         -- JavaScript / TypeScript
         -- ---------------------------------------------------
+        sqls = false,
         ts_ls = function(_, opts)
           -- Vue stuff
           local mason_registry = require "mason-registry"

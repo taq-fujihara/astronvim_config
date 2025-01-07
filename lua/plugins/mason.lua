@@ -13,7 +13,7 @@ return {
         "jdtls",
         "lua_ls",
         "basedpyright",
-        "ruff_lsp",
+        "ruff",
         "rust_analyzer",
         "sqls",
         "svelte",
