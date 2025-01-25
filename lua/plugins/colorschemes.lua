@@ -33,7 +33,6 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    enabled = false,
     lazy = false,
     priority = 1000,
     opts = {
@@ -45,7 +44,6 @@ return {
   },
   {
     "Shatur/neovim-ayu",
-    enabled = false,
     name = "ayu",
     opts = {
       mirage = true,
@@ -64,7 +62,6 @@ return {
   },
   {
     "neanias/everforest-nvim",
-    enabled = false,
     version = false,
     lazy = false,
     priority = 1000,
@@ -86,14 +83,12 @@ return {
   },
   {
     'shaunsingh/nord.nvim',
-    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
-      vim.g.nord_contrast = true
+      vim.g.nord_contrast = false
       vim.g.nord_borders = false
       vim.g.nord_disable_background = true
-      vim.g.nord_cursorline_transparent = true
       vim.g.nord_italic = false
       vim.g.nord_bold = false
     end,
