@@ -11,6 +11,7 @@ return {
     options = {
       opt = {
         wrap = true,
+        title = false,
       },
     },
   },
