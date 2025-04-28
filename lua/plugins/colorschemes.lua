@@ -11,21 +11,4 @@ return {
       vim.g.nord_bold = false
     end,
   },
-  {
-    "xiyaowong/transparent.nvim",
-    lazy = false,
-    priority = 1001,
-    opts = {
-      extra_groups = {
-        "NormalFloat",
-        "GitSignsAdd",
-        "GitSignsChange",
-        "GitSignsDelete",
-        "WinBar",
-      },
-      exclude_groups = {
-        "CursorLine",
-      },
-    },
-  },
 }
