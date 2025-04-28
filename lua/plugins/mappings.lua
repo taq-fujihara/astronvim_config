@@ -27,11 +27,9 @@ return {
           "*``cgn",
           desc = "Replace Word under Cursor",
         },
-        ["<Leader><Leader>"] = { function() require("telescope.builtin").buffers() end, desc = "Find buffers" },
-        -- ["<Leader>gho"] = {
-        --   "<cmd>GhostTextStart<cr>",
-        --   desc = "Start GhostText",
-        -- },
+        ["<Leader><Leader>"] = {
+          function() require("snacks").picker.smart() end, desc = "Find buffers",
+        },
         ["<Leader>c"] = {
           function()
             local bufs = vim.fn.getbufinfo({ buflisted = true })
