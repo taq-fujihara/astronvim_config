@@ -11,6 +11,7 @@ return {
         "lua-language-server",
         "ruff",
         "rust-analyzer",
+        "terraform-ls",
         "typescript-language-server",
       },
     },
