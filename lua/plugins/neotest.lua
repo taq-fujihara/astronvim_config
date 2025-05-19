@@ -6,9 +6,7 @@ return {
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter",
     'thenbe/neotest-playwright',
-    -- dependencies = {
-    --   'nvim-telescope/telescope.nvim',
-    -- },
+    "marilari88/neotest-vitest",
   },
   keys = {
     {
@@ -28,16 +26,17 @@ return {
   config = function()
     require("neotest").setup({
       consumers = {
-		    playwright = require('neotest-playwright.consumers').consumers,
-	    },
-			adapters = {
-				require("neotest-playwright").adapter({
-					options = {
-						persist_project_selection = true,
-						enable_dynamic_test_discovery = true,
-					},
-				}),
-			},
-		})
+        playwright = require('neotest-playwright.consumers').consumers,
+      },
+      adapters = {
+        require("neotest-vitest"),
+        require("neotest-playwright").adapter({
+          options = {
+            persist_project_selection = true,
+            enable_dynamic_test_discovery = true,
+          },
+        }),
+      },
+    })
   end,
 }
