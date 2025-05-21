@@ -45,6 +45,7 @@ return {
             "ggVG",
             desc = "Select All",
           },
+          ["<Leader>m"] = { desc = " Markdown" },
         },
         i = {
           ["<C-_>"] = {
