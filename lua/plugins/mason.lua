@@ -9,6 +9,7 @@ return {
         "debugpy",
         "deno",
         "eslint-lsp",
+        "js-debug-adapter",
         "lua-language-server",
         "ruff",
         "rust-analyzer",
