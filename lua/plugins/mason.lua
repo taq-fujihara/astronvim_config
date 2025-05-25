@@ -11,6 +11,7 @@ return {
         "eslint-lsp",
         "js-debug-adapter",
         "lua-language-server",
+        "marksman",
         "ruff",
         "rust-analyzer",
         "terraform-ls",

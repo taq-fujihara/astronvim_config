@@ -28,7 +28,7 @@ return {
     heading = {
       width = { "full", "block" },
       icons = { "", "", "", "", "", "" },
-      min_width = 60,
+      min_width = 80,
       right_pad = 2,
       left_pad = 0,
     },
